@@ -9,6 +9,7 @@ import express from 'express' //Servidor HTTP
 import morgan from 'morgan' //Logs
 import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
+import authRoutes from '../src/auth/auth.routes.js'
 
 //Configuraciones de express
 const configs = (app)=>{
@@ -19,15 +20,16 @@ const configs = (app)=>{
     app.use(morgan('dev'))
 }
 
-/* const rutes = (app)=>{
-    app.use('rutas de la entidad')
-} */
+const routes = (app)=>{
+    app.use(authRoutes)
+}
 
 //Ejecutarmos el servidor
 export const initServer = ()=>{
     const app = express() //Instancia de express
     try{
         configs(app)
+        routes(app)
         app.listen(process.env.PORT)
         console.log(`Server running in port ${process.env.PORT}`)
     }catch(err){
