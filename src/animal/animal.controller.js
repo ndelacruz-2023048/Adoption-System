@@ -37,10 +37,14 @@ export const updateAnimal = async(request,response)=>{
     }
 }
 
-export const deleteAnimal = async()=>{
+export const deleteAnimal = async(request,response)=>{
     try {
-        
+        let id = request.params.id
+        let animalDeleted = await Animal.findByIdAndDelete({_id:id})
+
+        return response.send({message:'Delete animal',animalDeleted})
+
     } catch (error) {
-        
+        return response.status(500).send({message: 'General error with animal creation', error})
     }
-}
+}   
