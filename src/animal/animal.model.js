@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const animalSchema = Schema({
     name:{
@@ -18,8 +18,9 @@ const animalSchema = Schema({
         required:[true,'Type is required'],
     },
     keeper:{
-        type:Number,
-        required:[true, 'Keeper is required'],
+        type:Schema.Types.ObjectId,
+        ref:'User',
+        required:[true,'Keeper is required']
     },
 
 })
