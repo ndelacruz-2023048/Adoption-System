@@ -11,6 +11,7 @@ import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 import authRoutes from '../src/auth/auth.routes.js'
 import animalRoutes from '../src/animal/animal.routes.js'
+import {limiter} from '../middlewares/rate.limit.js'
 
 //Configuraciones de express
 const configs = (app)=>{
@@ -19,6 +20,7 @@ const configs = (app)=>{
     app.use(cors())
     app.use(helmet())
     app.use(morgan('dev'))
+    app.use(limiter)
 }
 
 const routes = (app)=>{

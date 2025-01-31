@@ -25,23 +25,22 @@ const userSchema = Schema(
         email: {
             type: String,
             required: [true, 'Email is required'],
-            //Vamos a ver que pasa si no es único
-            //Validación personalizada:
-            match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g] //Regex para validar Email (Momentaneo)
+            //Vamos a ver que pasa si no es única
         },
         password: {
             type: String,
             required: [true, 'Password is required'],
             minLength: [8, 'Password must be 8 characters'],
             maxLength: [100, `Can't be overcome 100 characters`],
-            //match: [/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/gm]
+        },
+        profilePicture:{
+            type:String,
         },
         phone: {
             type: String,
             required: [true, 'Phone is required'],
-            minLength: [9, `Can't be overcome 16 characters`],
+            minLength: [8, `Can't be overcome 16 characters`],
             maxLength: [15, 'Phone must be 15 numbers'],
-            match: [/^\+[0-9]{1,3} [0-9]{3,5}-[0-9]{4}$/]
         },
         role: {
             type: String,
