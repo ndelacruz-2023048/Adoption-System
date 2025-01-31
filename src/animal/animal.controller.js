@@ -1,4 +1,6 @@
 import Animal from '../animal/animal.model.js'
+import User from '../user/user.model.js'
+import mongoose from 'mongoose'
 
 export const testAnimal = (request,response)=>{
     console.log('Test Animal is running')
@@ -8,7 +10,14 @@ export const testAnimal = (request,response)=>{
 export const createAnimal = async(request,response)=>{
     try {
         let newAnimal = request.body
+        // let algo = await Animal.find({keeper:new mongoose.Types.ObjectId('679c3de2af72e17c360b3e88')})
+        // console.log(algo)
+        
+        let listUserRoleAdmin = await User.find({role:'ADMIN'})
+        let randomNumberAdmin = Math.floor(Math.random()*listUserRoleAdmin.length)
+        let selectIdUserRoleAdmin= listUserRoleAdmin[randomNumberAdmin]._id
         let animal = new Animal(newAnimal)
+        animal.keeper = selectIdUserRoleAdmin
         await animal.save()
         response.send({message:'Animal created',animal})
     } catch (error) {
