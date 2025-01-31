@@ -10,6 +10,7 @@ import morgan from 'morgan' //Logs
 import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 import authRoutes from '../src/auth/auth.routes.js'
+import animalRoutes from '../src/animal/animal.routes.js'
 
 //Configuraciones de express
 const configs = (app)=>{
@@ -22,6 +23,7 @@ const configs = (app)=>{
 
 const routes = (app)=>{
     app.use(authRoutes)
+    app.use(animalRoutes)
 }
 
 //Ejecutarmos el servidor
