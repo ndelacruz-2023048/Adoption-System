@@ -13,13 +13,13 @@ export const createAnimal = async(request,response)=>{
         // let algo = await Animal.find({keeper:new mongoose.Types.ObjectId('679c3de2af72e17c360b3e88')})
         // console.log(algo)
         
-        let listUserRoleAdmin = await User.find({role:'ADMIN'})
-        let randomNumberAdmin = Math.floor(Math.random()*listUserRoleAdmin.length)
-        let selectIdUserRoleAdmin= listUserRoleAdmin[randomNumberAdmin]._id
+        let userRoleAdmin = await User.findOne({role:'ADMIN',_id:newAnimal.keeper})
+        console.log(userRoleAdmin)
         let animal = new Animal(newAnimal)
-        animal.keeper = selectIdUserRoleAdmin
-        await animal.save()
-        response.send({message:'Animal created',animal})
+        userRoleAdmin ? await animal.save() && response.send({message:'Animal created',animal}): response.send({message:'Keeper Id is not valid'})
+        // animal.keeper = selectIdUserRoleAdmin
+        // await animal.save()
+        
     } catch (error) {
         console.error(error)
         return response.status(500).send({message: 'General error with animal creation', error})
