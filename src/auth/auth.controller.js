@@ -74,9 +74,9 @@ export const updatePassword = async(request,response)=>{
             newPassword = await encrypt(newPassword)
             let responseNewPassword = await User.findByIdAndUpdate({_id:_id},{password:newPassword},{new:true})
             console.log(responseNewPassword)
-            response.send({message:'Update password'})
+            response.send({message:'Updated password'})
         }else{
-            response.send({message:'Credentials Invalids'})
+            response.send({message:'Credentials Invalid'})
         }
     } catch (error) {
         response.status(500).send({message: 'General error with password update', error})
