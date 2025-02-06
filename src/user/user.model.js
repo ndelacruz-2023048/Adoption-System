@@ -25,6 +25,7 @@ const userSchema = Schema(
         email: {
             type: String,
             required: [true, 'Email is required'],
+            unique:true
             //Vamos a ver que pasa si no es única
         },
         password: {
@@ -50,6 +51,13 @@ const userSchema = Schema(
         }
     }
 )
+
+//Modificar el toJSON => toObject para excluir datos en la respuesta
+userSchema.methods.toJSON = function(){
+    const {__v,password,...user} = this.toObject()//Sirve para convertir un documento de MongoDB a Objeto JS
+    return user
+}
+
 
 //Crear y exportar el modelo
 export default model('User', userSchema)

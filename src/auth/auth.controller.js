@@ -35,9 +35,16 @@ export const register = async(req, res)=>{
 export const login = async(req, res)=>{
     try{
         //Capturar los datos(body)
-        let { username, password } = req.body
+        let { userLoggin, password } = req.body
         //Validar que el usuario exista
-        let user = await User.findOne({username}) //{username} = {username: username}
+        let user = await User.findOne(
+            {
+                $or:[//Subfunción OR | espera un [] de busquedas
+                    {email:userLoggin},
+                    {username:userLoggin}
+                ]
+            }
+        ) //{username} = {username: username}
         //Verificar que la contraseña coincida
         if(user && await checkPassword(user.password, password)){
             //Generar el token
@@ -67,7 +74,8 @@ export const login = async(req, res)=>{
 //Update Password
 export const updatePassword = async(request,response)=>{
     try {
-        let {_id, oldPassword, newPassword} = request.body
+        let {_id} = request.params
+        let {oldPassword, newPassword} = request.body
         let selectUserById = await User.findOne({_id})
         let isValidPassword = await checkPassword(selectUserById.password,oldPassword)
         if(isValidPassword===true){

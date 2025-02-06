@@ -24,7 +24,7 @@ api.post('/register',
     deleteFileOnError
     , register)
 api.post('/login', login)
-api.put('/password',updatePassword)
+api.put('/password/:_id',updatePassword)
 
 //Rutas privadas
 api.get('/test', validateJwt, test)
