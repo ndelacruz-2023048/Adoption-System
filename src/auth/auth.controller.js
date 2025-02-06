@@ -63,3 +63,17 @@ export const login = async(req, res)=>{
         return res.status(500).send({message: 'General error with login function', err})
     }
 }
+
+//Update Password
+export const updatePassword = async(request,response)=>{
+    try {
+        let {_id, oldPassword, newPassword} = request.body
+        let selectUserById = await User.findOne({_id})
+        let isValidPassword = await checkPassword(selectUserById.password,oldPassword)
+        let responseNewPassword = await User.findByIdAndUpdate({_id:_id},{password:newPassword},{new:true})
+        console.log(responseNewPassword)
+        response.send({message:'Update password'})
+    } catch (error) {
+        response.status(500).send({message: 'General error with password update', error})
+    }
+}
