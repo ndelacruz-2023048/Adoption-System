@@ -27,7 +27,7 @@ const configs = (app)=>{
 const routes = (app)=>{
     app.use(authRoutes)
     app.use(animalRoutes)
-    app.use('/v1/user',userRoutes)
+    app.use('/v1/user/',userRoutes)
 }
 
 //Ejecutarmos el servidor

@@ -9,3 +9,14 @@ export const validateErrors = (request,response,next)=>{
     }
     next()
 }
+export const validateErrorsWithoutFiles = (request,response,next)=>{
+    const errors = validationResult(request)
+    if(!errors.isEmpty()){
+        return response.status(400).send({
+            sucess:false,
+            message:'Error with validations',
+            errors:errors.errors
+        })
+    }
+    next()
+}
