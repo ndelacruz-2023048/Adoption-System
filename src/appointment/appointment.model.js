@@ -1,24 +1,29 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 const appointmentSchema = Schema({
     name:{
         type:String,
         required:[true,'Name is required']
     },
-    fecha:{
+    date:{
         type:Date,
         required:[true,'Date is required']
     },
     state:{
         type:String,
-        enum: ['ACEPTATION', 'CREATED','FINALIZATION']
+        enum: ['ACEPTED', 'CREATED','FINALIZATION']
     },
-    user:{
-        type:String,
-        
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref:'User',
+        required:[true,'User is required']
     },
-    animal:{
-
+    animalId:{
+        type:Schema.Types.ObjectId,
+        ref:'Animal',
+        required:[true,'Animal is required']
     }
 
 })
+
+export default model('Appointment',appointmentSchema)

@@ -18,7 +18,6 @@ const api = Router()
 api.post('/register',
     [uploadProfilePicture.single("profilePicture"),
     //Validador de errores!!!
-
     registerValidator],
     //Ejecutar la validación de errores 
     deleteFileOnError

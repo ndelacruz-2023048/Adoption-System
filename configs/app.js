@@ -12,6 +12,7 @@ import cors from 'cors' //Acceso al API
 import authRoutes from '../src/auth/auth.routes.js'
 import animalRoutes from '../src/animal/animal.routes.js'
 import userRoutes from '../src/user/user.routes.js'
+import appointmentsRoutes from '../src/appointment/appointment.routes.js'
 import {limiter} from '../middlewares/rate.limit.js'
 
 //Configuraciones de express
@@ -28,6 +29,7 @@ const routes = (app)=>{
     app.use(authRoutes)
     app.use(animalRoutes)
     app.use('/v1/user/',userRoutes)
+    app.use(appointmentsRoutes)
 }
 
 //Ejecutarmos el servidor
