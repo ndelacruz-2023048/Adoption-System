@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "1fe81ee7-8def-4cfe-9f1f-7e07d1e43315",
+		"name": "AdoptionSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956955"
+	},
+	"item": [
+		{
+			"name": "Animals",
+			"item": [
+				{
+					"name": "GetAnimals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/animal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "abj",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Es un pajaro muy colorido",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Pajaro",
+									"type": "text"
+								},
+								{
+									"key": "keeper",
+									"value": "67a12a8b99195974f79235d1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/animal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAnimal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Conejo",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Salta mucho",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Conejo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/animal/679c471b50c44041371e0ff2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"animal",
+								"679c471b50c44041371e0ff2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Conejo",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Salta mucho",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAnimal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/animal/679c478ece6ce5609c74bad7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"animal",
+								"679c478ece6ce5609c74bad7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "carlos",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "lopez",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "carlopez22od",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "carlopez9odt@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "4ref4@A45",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "459623158",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Pictures/Screenshots/Captura de pantalla 2025-01-20 081035.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "4ref4@A45789HOLA",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "4ref4@A45789Act",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/password/67a50ba0cb704a4d24e2db65",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"password",
+								"67a50ba0cb704a4d24e2db65"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "carlopez22",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "4ref4@A45",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E1MWEwMTQzMDQ3MjhiY2E2NGNlZGQiLCJ1c2VybmFtZSI6ImNhcmxvcGV6MSIsIm5hbWUiOiJjYXJsb3MiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3Mzg4NzQ0MTgsImV4cCI6MTczODg4NTIxOH0.5HUDUCOGd55WrhBgADBHFUOVIVxR_0FCPBZImpsN1UU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/v1/user/getUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"user",
+								"getUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/v1/user/getUser/67a12a6199195974f79235cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"user",
+								"getUser",
+								"67a12a6199195974f79235cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "CarlosNUEVO",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "carlopez9odtNUEVO@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/user/updateUser/67a53cf67bf9dd4d8db4b01a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"user",
+								"updateUser",
+								"67a53cf67bf9dd4d8db4b01a"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "carlosNUEVO",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Citas",
+			"item": [
+				{
+					"name": "Create Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Almohadillas lastimadas",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-08-15T14:35:20",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "ACEPTED",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "67a669d9a757eb0f9dbe6d3a",
+									"type": "text"
+								},
+								{
+									"key": "animalId",
+									"value": "67a128292db9d4201fb98ef4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/cita",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"cita"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/getCita",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCita"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

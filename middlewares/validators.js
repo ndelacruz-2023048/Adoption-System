@@ -1,7 +1,7 @@
 //Validar campos en la rutas
 
 import { body } from "express-validator";
-import { validateErrors, validateErrorsWithoutFiles } from "./validate.errors.js";
+import { validateErrors, validateErrorsAppointment, validateErrorsWithoutFiles } from "./validate.errors.js";
 import { existEmail, existUsername, notRequiredField} from "../utils/db.validators.js";
 
 //Arreglo de validaciones (por cada ruta)
@@ -22,4 +22,9 @@ export const updateUserValidator = [
     body('profilePicture').optional().notEmpty().custom(notRequiredField),
     body('role').optional().notEmpty().custom(notRequiredField),
     validateErrorsWithoutFiles//Después lo vamos a modificar
+]
+
+export const registerAppointmentValidator = [
+    body('date').notEmpty().withMessage('date is required').isISO8601().withMessage('Format Date is wrong').toDate(),
+    validateErrorsAppointment
 ]
