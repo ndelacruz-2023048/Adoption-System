@@ -23,6 +23,11 @@ const animalSchema = Schema({
         required:[true,'Keeper is required']
     },
 
-})
+},
+{
+    versionKey:false,
+    timestamps:true
+}
+)
 
 export default model('Animal',animalSchema)

@@ -1,4 +1,5 @@
 //Validar datos relacionados a la base de datos
+import { isValidObjectId } from 'mongoose'
 import User from '../src/user/user.model.js'
                                    //parametro || token || id(params) 
 export const existUsername = async(username,user)=>{
@@ -22,4 +23,12 @@ export const notRequiredField = (field)=>{
         throw new Error(`${field} is not required`)
     }
 
+}
+
+
+//Validar que sea un ID Valido
+export const objectIdValid = (objectID)=>{
+    if(!isValidObjectId(objectID)) { 
+        throw new Error('Keeper is not a valid ObjectId')
+    }
 }
