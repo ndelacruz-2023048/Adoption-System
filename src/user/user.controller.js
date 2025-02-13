@@ -82,3 +82,26 @@ export const updateUser=async(request,response)=>{
 }
 
 //Actualizar profilePicture
+export const updateProfilePicture = async (request,response)=>{
+    try {
+        const {uid} = request.user
+        const {filename}= request.file
+        const user = await User.findByIdAndUpdate(uid,{
+            profilePicture:filename
+        },{new:true})
+        if(!user) return response.status(404).send({
+            
+            sucess:false,
+            message:'User not found'
+        })
+        return response.send({success:true,message:'User updated succesfully',user})
+
+    } catch (error) {
+        console.error(error)
+        response.send({
+            success:false,
+            message:"General error",
+            error
+        })
+    }
+}
